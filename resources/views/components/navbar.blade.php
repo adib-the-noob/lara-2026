@@ -22,6 +22,6 @@
     </ul>
   </div>
   <div class="navbar-end">
-    <a href="{{ route('register') }}" class="btn">Register</a>
+    <a href="{{ route('register.show') }}" class="btn">Register</a>
   </div>
 </div>
