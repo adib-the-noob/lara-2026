@@ -11,4 +11,4 @@ Route::post("/ideas/{idea}/update", [IdeasController::class, 'update'])->name("i
 Route::delete("/ideas/{idea}/delete", [IdeasController::class, 'destroy'])->name("ideas.destroy");
 
 
-Route::get('/register', [RegisterUserController::class, 'create']);
+Route::get('/register', [RegisterUserController::class, 'create'])->name("register");

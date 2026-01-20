@@ -9,19 +9,19 @@
       <ul
         tabindex="-1"
         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Home</a></li>
-        <li><a>New Ideas</a></li>
+        <li><a href="{{ route('home') }}">Home</a></li>
+        <li><a href="{{ route('ideas.create') }}">New Ideas</a></li>
       </ul>
     </div>
-    <a class="btn btn-ghost text-xl">daisyUI</a>
+    <a href="{{ route('home') }}" class="btn btn-ghost text-xl">daisyUI</a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <li><a>Home</a></li>
-      <li><a>New Ideas</a></li>
+      <li><a href="{{ route('home') }}">Home</a></li>
+      <li><a href="{{ route('ideas.create') }}">New Ideas</a></li>
     </ul>
   </div>
   <div class="navbar-end">
-    <a href="/register" class="btn">Register</a>
+    <a href="{{ route('register') }}" class="btn">Register</a>
   </div>
 </div>
