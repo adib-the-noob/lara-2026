@@ -8,6 +8,6 @@ class Ideas extends Model
 {
     protected $fillable = [
         'title',
-        'state'
+        'status'
     ];
 }
