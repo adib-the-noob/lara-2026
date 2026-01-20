@@ -1,10 +1,10 @@
 <x-layout title="Home">
-    <div id="all-ideas" class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center items-stretch">
+    <div id="all-ideas" class="mt-8 flex flex-wrap justify-center gap-6">
         @if (empty($ideas))
         <p class="text-center">No ideas found</p>
         @else
         @foreach ($ideas as $idea)
-        <div class="flex h-full w-4/5 flex-col rounded-xl border border-base-300/70 bg-base-100 p-5 shadow-sm">
+        <div class="flex h-full w-full max-w-sm flex-col rounded-xl border border-base-300/70 bg-base-100 p-5 shadow-sm">
             <h2 class="text-lg font-semibold text-base-content">{{ $idea->title }}</h2>
             <div class="mt-3 flex items-center justify-between text-sm text-base-content/70">
                 <span class="uppercase tracking-wide">Status</span>
@@ -29,7 +29,10 @@
     </div>
     <div id="idea-forms" class="mt-6 flex justify-center">
         <div class="w-full max-w-md">
-            <x-idea-form></x-idea-form>
+            <x-idea-form
+                method="post"
+                action="{{ route('ideas.create') }}">
+            </x-idea-form>
         </div>
     </div>
 </x-layout>

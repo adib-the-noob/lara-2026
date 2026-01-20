@@ -15,6 +15,20 @@ class IdeasController extends Controller
         ]);
     }
 
+    public function create(Request $request){
+        $request->validate([
+            "title" => "required|string|max:255",
+            "status" => "required|string|in:done,pending,in-progress"
+        ]);
+        Ideas::create(
+            [
+                "title" => $request->title,
+                "status" => $request->status,
+            ]
+        );
+        return redirect()->route("home");
+    }
+
     public function show(Ideas $idea)
     {
         return view("ideas.show", [
@@ -28,6 +42,12 @@ class IdeasController extends Controller
             "title" => $request->input("title"),
             "status" => $request->input("status"),
         ]);
+        return redirect()->route("home");
+    }
+
+    public function destroy(Ideas $idea)
+    {
+        $idea->delete();
         return redirect()->route("home");
     }
 }
