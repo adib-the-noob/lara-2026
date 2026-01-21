@@ -29,6 +29,10 @@ class IdeasController extends Controller
         return redirect()->route("home");
     }
 
+    public function createForm(){
+        return view("ideas.create");
+    }
+    
     public function show(Ideas $idea)
     {
         return view("ideas.show", [

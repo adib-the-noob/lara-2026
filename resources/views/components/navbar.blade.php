@@ -10,7 +10,7 @@
         tabindex="-1"
         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li><a href="{{ route('home') }}">Home</a></li>
-        <li><a href="{{ route('ideas.create') }}">New Ideas</a></li>
+        <li><a href="{{ route('ideas.createForm') }}">New Ideas</a></li>
       </ul>
     </div>
     <a href="{{ route('home') }}" class="btn btn-ghost text-xl">daisyUI</a>
@@ -21,7 +21,28 @@
       <li><a href="{{ route('ideas.create') }}">New Ideas</a></li>
     </ul>
   </div>
+  @guest
   <div class="navbar-end">
-    <a href="{{ route('register.show') }}" class="btn">Register</a>
+    @if(!request()->routeIs('register.show'))
+    <a href="{{ route('register.show') }}" class="btn ml-2">Register</a>
+    @endif
+    @if(!request()->routeIs('login.show'))
+    <a href="{{ route('login.show') }}" class="btn ml-2">Login</a>
+    @endif
   </div>
+  @endguest
+
+  @auth
+  <div class="navbar-end">
+    <form method="POST" action="{{ route('logout') }}">
+      @csrf
+      <div class="avatar">
+        <div class="w-10 rounded-full">
+          <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
+        </div>
+      </div>
+      <button type="submit" class="btn btn-error text-white ml-2 hover:bg-red-600">Logout</button>
+    </form>
+  </div>
+  @endauth
 </div>
